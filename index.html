@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KupiKitu.rs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f8f8f8;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      position: relative;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid #fff;
+      background: #fff;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #ff0066;
+      margin-bottom: 0.2em;
+      margin-top: 80px;
+    }
+    .price {
+      font-size: 1.5rem;
+      background: #000;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    img.product {
+      width: 200px;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+    .buy-section {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .buy-section button {
+      padding: 1.8rem 3.2rem;
+      font-size: 2rem;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .buy-section button:hover {
+      background: #ff0066;
+    }
+    button {
+      padding: 0.8rem 1.6rem;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+      margin: 2rem auto;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    button:hover {
+      background: #ff0066;
+    }
+    .youtube-video iframe {
+      width: 540p;
+      height: 960p; 
+      border: none;
+    }
+    .reviews, .info, .delivery-support {
+      max-width: 600px;
+      max-height: 530px;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .review {
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem 0;
+    }
+    .review:last-child {
+      border: none;
+    }
+    .stars {
+      color: gold;
+      margin-bottom: 0.2rem;
+    }
+    .support {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .info h3, .delivery-support h3 {
+      margin-top: 1rem;
+      color: #ff0066;
+    }
+    .socials {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .socials a {
+      text-decoration: none;
+      font-size: 2rem;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .yt {
+      background: #ff0000;
+    }
+    .tt {
+      background: #000;
+    }
+    .btn {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #ff4d4d;
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+    .btn:focus {
+      outline: none;
+    }
+    .news-section {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .news-section h2 {
+      font-size: 2rem;
+      color: #ff0066;
+      margin-bottom: 1rem;
+    }
+
+    .news-item {
+      padding: 1rem;
+      background: #f9f9f9;
+      border-radius: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+
+    .news-item h3 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .news-item p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .news-item a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #ff0066;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .news-item a:hover {
+      text-decoration: underline;
+    }  
+    .live-chat {
+      position: fixed;
+      bottom: 100px;
+      left: calc(100vw - 200px);
+      background-color: #ff0066;
+      color: white;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .live-chat:hover {
+      background-color: #ff4d4d;
+    }
+
+    .chat-icon {
+      width: 50px;
+      height: 50px;
+    }
+    @media (max-width: 600px) {
+      .live-chat {
+        bottom: 20px; /* Move the button higher on small screens */
+        right: 5%; /* Adjust the right position for mobile */
+        width: 50px; /* Smaller button size on mobile */
+        height: 50px; /* Smaller button size on mobile */
+      }
+
+      .chat-icon {
+        width: 25px; /* Smaller icon on mobile */
+        height: 25px; /* Smaller icon on mobile */
+      }
+    }
+</style>
+
+<body>
+  <header>
+    <img class="logo" src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/vzi9jef0.jpg" alt="Logo">
+    <h1>KupiKitu.rs</h1>
+    <div class="price">25€</div>
+    <img class="product" src="https://upload.wikimedia.org/wikipedia/commons/a/a6/KupujemProdajem_logo_500.png" alt="KP">
+    <div class="buy-section">
+      <button onclick="alert('Dodato u korpu!')">KUPI SAD</button>
+    </div>
+    <button onclick="alert('Bumbula pozvan! Dostavlja karakondžula u roku od 30 minuta.')">Pozovi Bumbulu</button>
+    <button onclick="alert('DJ Baraba dolazi da popravi polupanu kitu!')">Zovi DJ Barabu</button>
+  </header>
+
+  <div class="info">
+    <h2>Zašto naša kita?</h2>
+    <h3>Nepolomiva i Nezapaljiva*</h3>
+    <p>Testirale 3 bumbule, pod svim uslovima.</p>
+
+    <h3>Estetski savršena</h3>
+    <p>Napravljena po uzoru na Miletinu kitu iz kurcovog Haga.</p>
+
+    <h3>Garancija Barabe</h3>
+    <p>DJ Baraba dolazi lično (da vam obesi muda) ako se polomi/zapali.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/6crh93yj.png" alt="Kita 1">
+    <img src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/gg3dxaa6.png" alt="Kita 2">
+    <img src="https://thumb.luxuretv.com/thumbs/6/0/d/1/f/60cda112dbf02.mp4/60cda112dbf02.mp4-9b.jpg" alt="Kita 3">
+    <img src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/vzi9jef0.jpg" alt="Kita 4">
+  </div>
+
+  <div class="delivery-support">
+    <h2>Dostava & Podrška</h2>
+    <h3>Karakondžula Delivery</h3>
+    <p>Dostavlja karakondžula na trotinetu. Ako ne stigne za 24h, dobijaš bonus kitu i motornu testeru gratis.</p>
+
+    <h3>Customer Support</h3>
+    <p>Bumbula na vezi 24/7. Brblja nešto na slovenačkom, ali rešava sve.</p>
+  </div>
+
+
+
+  <a href="https://youtu.be/esU1_BGiggg" target="_blank">
+    <button class="btn">Pogledaj video na YouTube</button>
+  </a>
+
+  <div class="reviews">
+    <h2>Recenzije</h2>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <strong>Danijel Lacinov aka Cerial</strong><br>
+      Kita je brutalna, preporuka! Zapalili mi prvu na DoxxBetu ali sad je imortalna!
+    </div>
+    <div class="review">
+      <div class="stars">★☆☆☆☆</div>
+      <strong>Svinjara</strong><br>
+      Kita je prvo bila dobra al sam je uvalio u govna pa se otkačila, zvao sam Bumbulu i DJ Barabu umesto da poprave su me poslali na ringišpilsku centrifugu i obesili mi svinjska muda. Ne preporučujem!
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      <strong>Autizam</strong><br>
+      Dobra je, al bi voleo da škripi dok je grizem, i pišam ljudima na sajbersaubu.
+    </div>
+    <div class="review">
+      <div class="stars">★★★☆☆</div>
+      <strong>EternalTheGod</strong><br>
+      AHAHAHHAHAHAHHAHAHAHAHAHHAA NISAM BRE REKAO DA TO KAZES 😭
+    </div>
+    <div class="review">
+      <div class="stars">★★☆☆☆</div>
+      <strong>EmirDEV</strong><br>
+      NE ZNAM 😭
+      KUPIO SAM KITU DA PROGRAMIRAM ONE MOJE LIMUNE
+      BRACE STVARNO NE ZNAM 😭
+    </div>
+
+  <div class="support">
+    <p>Imate problem sa kitom? Tu je podrška 24/7.</p>
+    <p>Kontakt: <strong>bumbula@kupikitu.rs</strong> ili zovi <strong>+381-KITA-NOW</strong></p>
+  </div>
+
+  <div class="news-section">
+    <h2>Najnovija Vest</h2>
+    <div class="news-item">
+      <h3>DEČAK ČILUBA (Dovoljno) NESTAO U UKLETOJ FABRICI CIGLI</h3>
+      <p>DEČAK ČILUBA (Dovoljno) NESTAO U UKLETOJ FABRICI CIGLI: Prilikom povratka iz ringišpilske centrifuge zapalila mu se qita - DJ Baraba traga za mudima</p>
+      <a href="#">Pročitaj više</a>
+    </div>
+  </div>
+
+  <button class="live-chat">
+    <img src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/xk2if3pr.png" alt="Chat" class="chat-icon">
+  </button>
+
+  <div class="support">
+    <p>©Copyright 2025 | KupiKitu.rs Limited Liability Company</p>
+  </div>
+
+  <footer style="margin-top: 3rem; text-align: center; font-weight: bold; color: #555;">
+    Prati nas: 
+    <a href="https://youtube.com/@kocicciluba" target="_blank" style="color: #ff0000; text-decoration: none;">YouTube</a> | 
+    <a href="https://tiktok.com/@dj.baraba" target="_blank" style="color: #000; text-decoration: none;">TikTok</a> | 
+    <a href="#" style="color: #444; text-decoration: none;">DarkWeb</a> | 
+    <a href="#" style="color: #007aff; text-decoration: none;">DoxxBet</a>
+
+  <div class="other">
+    <p>ㅤ</p>
+    <p>ㅤ</p>
+  </div>
+
+  </footer>
+</body>
+</html>
