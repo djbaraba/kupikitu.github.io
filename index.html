@@ -50,23 +50,30 @@
       border-radius: 1rem;
       margin-bottom: 1rem;
     }
-    .buy-section {
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-    .buy-section button {
-      padding: 1.8rem 5rem;
-      font-size: 2rem;
-      background: #789B73;
-      color: #fff;
+    .buy-button {
+      background-color: #ff0066;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
       border: none;
-      border-radius: 0.8rem;
-      font-weight: bold;
+      border-radius: 999px; 
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
+      letter-spacing: 1px;
     }
-    .buy-section button:hover {
-      background: #ff0066;
+
+    .buy-button:hover {
+      background-color: #e6005c;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .buy-button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
     }
     button {
       padding: 0.8rem 1.6rem;
