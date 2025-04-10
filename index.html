@@ -249,6 +249,29 @@
       width: 40px;
       height: 40px;
     }
+    .header {
+      text-align: right;
+      padding: 20px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .login-link {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 8px 16px;
+      background-color: #ff0066;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+  /* Hover efekat */
+    .login-link:hover {
+      background-color: #ff4d4d;
+    }
+
     @media (max-width: 768px) {
       .gallery {
         max-width: 100%;
@@ -264,7 +287,9 @@
 
 <body>
   <header>
-    <a class="login-link" href="login.html">Login</a>
+    <div class="login">
+      <a class="login-link" href="login.html">Login</a>
+    </div>
     <img class="logo" src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/vzi9jef0.jpg" alt="Logo">
     <h1>KupiKitu.rs</h1>
     <div class="price">25€</div>
