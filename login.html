@@ -65,23 +65,110 @@
 
     .login-form button:hover {
       background-color: #ff4d4d;
+        .login-form {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .login-form input,
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* Popup styling */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .popup-content button {
+      margin-top: 20px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close-btn:hover {
+      color: black;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <a class="login-link" href="index.html">Back</a>
-  </div>
 
-  <!-- Login Form -->
   <div class="login-form">
     <h2>Настройте вашия муда Ди Джей аканут в KupiKitu.rs</h2>
-    <form>
+    <form id="registerForm">
       <input type="text" id="name" placeholder="Ime" required>
       <input type="email" id="email" placeholder="Email" required>
       <input type="password" id="password" placeholder="Lozinka" required>
       <button type="submit">Registruj se</button>
     </form>
   </div>
+
+  <!-- Popup menu -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h3>Потвърдете новия муда си Ди Джей имейл адрес</h3>
+      <button id="confirmClose">Zatvori</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const confirmClose = document.getElementById('confirmClose');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // stop the form from submitting
+      popup.style.display = 'flex'; // show the popup
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    confirmClose.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    // Optional: close if user clicks outside the popup
+    window.onclick = function(e) {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    };
+  </script>
+
 </body>
 </html>
