@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KupiKitu.rs</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <a href="https://kupikitu.github.io/djdaniel">
-    <img src="https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="DJ Image">
-    DJ Daniel
-  </a>
   <style>
     body {
       margin: 0;
@@ -276,6 +272,24 @@
     .login-link:hover {
       background-color: #ff4d4d;
     }
+    .ad {
+      position: relative;
+      display: inline-block;
+    }
+    .imgad {
+      width: 200px;
+      height: 100px;
+    }
+    .p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
 
     @media (max-width: 768px) {
@@ -294,6 +308,12 @@
 <body>
   <div class="header-login">
     <a href="login.html" class="login-link">Login</a>
+  </div>
+  <div class="ad">
+    <a href="https://kupikitu.github.io/djdaniel">
+      <img class="imgad" src="https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="DJ Image">
+      <p class="p">DJ Daniel</p>
+    </a>
   </div>
   <header>
     <img class="logo" src="https://r2.e-z.host/3d4af4c0-7b89-4682-9076-657ad3145524/vzi9jef0.jpg" alt="Logo">
