@@ -292,12 +292,14 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .small-text {
-      display: block;
-      margin-top: 8px; /* Adds space between the two texts */
+      position: absolute;
+      top: 70%; /* Adjust position to be just below the main text */
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 12px; /* Smaller font size */
-      color: white; /* White text color */
-      text-decoration: underline; /* Underlines the text */
-      cursor: pointer; /* Makes it look clickable */
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
 
